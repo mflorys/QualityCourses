@@ -36,8 +36,14 @@ public class Fight {
                             random.nextInt(40) + 60,
                             plecTab[random.nextInt(plecTab.length)]
                     );
-                    System.out.println(dogs[i].getRasa() + " " + dogs[i].getImie() + " " + dogs[i].getWiek() + " " + dogs[i].getWaga() + " " + dogs[i].getAgresja() + " " +
-                            dogs[i].getZwinnosc() + " " + dogs[i].getPunktyZycia() + " " + dogs[i].getPlec());
+                    System.out.println(dogs[i].getImie()
+                            + " (wiek: " + dogs[i].getWiek()
+                            + ", waga: " + dogs[i].getWaga()
+                            + ", agresja: " + dogs[i].getAgresja()
+                            + ", zwinnosc: " + dogs[i].getZwinnosc()
+                            + ", punkty zycia: " + dogs[i].getPunktyZycia()
+                            + ", " + dogs[i].getPlec()
+                            + ")");
                 }
                 break;
             case 2:
@@ -61,8 +67,14 @@ public class Fight {
 
                     dogs[i] = new Dog(rasa, imie, wiek, waga, agresja, zwinnosc, punktyZycia, plec);
 
-                    System.out.println(dogs[i].getRasa() + " " + dogs[i].getImie() + " " + dogs[i].getWiek() + " " + dogs[i].getWaga() + " " + dogs[i].getAgresja() + " " +
-                            dogs[i].getZwinnosc() + " " + dogs[i].getPunktyZycia() + " " + dogs[i].getPlec());
+                    System.out.println(dogs[i].getImie()
+                            + " (wiek: " + dogs[i].getWiek()
+                            + ", waga: " + dogs[i].getWaga()
+                            + ", agresja: " + dogs[i].getAgresja()
+                            + ", zwinnosc: " + dogs[i].getZwinnosc()
+                            + ", punkty zycia: " + dogs[i].getPunktyZycia()
+                            + ", " + dogs[i].getPlec()
+                            + ")");
                 }
                 break;
             default:
@@ -70,6 +82,7 @@ public class Fight {
         }
 
         int iloscAtakow = 0;
+        int maxAtakow = 10;
         int atakuje, broniSie;
 
         atakuje = random.nextInt(dogs.length);
@@ -79,7 +92,7 @@ public class Fight {
             broniSie = 1;
         }
 
-        while (iloscAtakow < 10) {
+        while (iloscAtakow < maxAtakow) {
             int pktZyciaPoAtaku = 0;
             int atakujacy = atakuje;
             int broniacy = broniSie;
@@ -102,6 +115,9 @@ public class Fight {
             if (dogs[broniSie].getPunktyZycia() <= 0) {
                 System.out.println(dogs[broniSie].getImie() + " otrzymał śmiertelny cios i zdechł");
                 break;
+            } else if (iloscAtakow == maxAtakow - 1) {
+                System.out.println(dogs[atakuje].getImie() + " odpuszcza i wraca do budy");
+                System.out.println(dogs[broniSie].getImie() + " odpuszcza i wraca do budy");
             } else {
                 atakuje = broniacy;
                 broniSie = atakujacy;
@@ -109,10 +125,7 @@ public class Fight {
 
             iloscAtakow++;
 
-            if(iloscAtakow==10){
-                System.out.println(dogs[atakuje].getImie() + " odpuszcza i wraca do budy");
-                System.out.println(dogs[broniSie].getImie() + " odpuszcza i wraca do budy");
-            }
+
         }
     }
 }
