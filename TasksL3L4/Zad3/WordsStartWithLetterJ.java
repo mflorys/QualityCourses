@@ -17,7 +17,7 @@ import java.util.Set;
  * i wypisze je na ekranie. Skorzystaj z takiej kolekcji, która zagwarantuje unikalność elementów.
  * */
 
-public class WordsStartWithLetterJ {
+public class WordsStartWithLetterJ { //junit is redundant here
 
     private WebDriver driver;
 
@@ -35,7 +35,7 @@ public class WordsStartWithLetterJ {
     void test() {
         driver.get("http://www.onet.pl");
         WebElement body = driver.findElement(By.tagName("body"));
-        int countWordsOccurances = 0;
+        int countWordsOccurances = 0; 
         Set<String> wordsList = new HashSet<String>();
 
         String text = body.getText();
