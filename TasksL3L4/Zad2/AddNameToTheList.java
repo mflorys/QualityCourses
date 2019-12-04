@@ -13,8 +13,8 @@ import java.util.Scanner;
 public class AddNameToTheList {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        List<String> imiona = new LinkedList<>();
-        String koniec = "koniec";
+        List<String> imiona = new LinkedList<>(); //ArrayList would be faster here, read about the differences; then => Collections.sort(imiona);
+        String koniec = "koniec"; 
         String imie = "";
 
         while (true) {
